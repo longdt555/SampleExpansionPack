@@ -1,0 +1,33 @@
+﻿@model IntegrateGoogleAuth.Models.GoogleUserProfile
+
+@{
+    ViewData["Title"] = "Profile";
+    var avtSrc = string.IsNullOrEmpty(Model.Picture) ? @Model.Picture : "https://i.pinimg.com/originals/eb/b0/2a/ebb02aedec9bc74f65e38311c7e14d34.png";
+    var emailStatus = Model.EmailVerified ? "Đã xác thực" : "Chưa xác thực";
+}
+
+<h1>Your profile is below guy</h1>
+<table cellspacing="20">
+    <tr>
+        <td><img src="@avtSrc" alt="avatar" style="width: 100px; height: 100px; border-radius: 50%;"></td>
+        <td>
+            <h1>@Model.Name</h1>
+            <p><strong>@Model.Email</strong></p>
+        </td>
+    </tr>
+</table>
+<hr>
+<h2>Details</h2>
+<ol>
+    <li>Sub: @Model.Sub</li>
+    <li>Gender: @Model.Gender</li>
+    <li>Email: @Model.Email</li>
+    <li>Family Name: @Model.FamilyName</li>
+    <li>Locale: @Model.Locale</li>
+    <li>EmailVerified: @emailStatus</li>
+    <li>Link: @Model.Link</li>
+</ol>
+<hr>
+<div style="text-align: center; margin-top: 50px;">
+    <a href="#">Logout</a>
+</div>

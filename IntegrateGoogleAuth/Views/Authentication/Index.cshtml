@@ -1,0 +1,50 @@
+﻿@{
+    ViewData["Title"] = "Login";
+}
+
+<style>
+    .txt-welcome {
+        color: #5b657c;
+        text-align: center;
+    }
+
+    .wrap {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -259px;
+        margin-left: -89px;
+        text-align: center;
+    }
+
+    .btn2 {
+        padding: 15px 30px;
+        text-decoration: none;
+        font-size: 18px;
+        display: block;
+        margin: 20px auto;
+    }
+
+        .btn2, .btn2:link, .btn2:visited {
+            background-color: #5b657c;
+            border: none;
+            border-radius: 3px;
+            box-shadow: 0 -3px 0 rgba(0,0,0,0.15) inset;
+            color: #fff;
+            letter-spacing: .1em;
+            cursor: pointer;
+            position: relative;
+            text-align: center;
+            text-transform: uppercase;
+            vertical-align: middle;
+            white-space: nowrap;
+        }
+</style>
+<div class="container">
+    <h1 class="txt-welcome">Here is the button for you to try the google sign in function<br /> Click here, fuck you!!!</h1>
+
+    <div class="wrap">
+        <button onclick="location.href='@Url.Action("Login", "Authentication")'" class="btn2">Log in with Google</button>
+    </div>
+
+</div>
