@@ -37,15 +37,15 @@ namespace IntegrateGoogleAuth.Controllers
                 return RedirectToAction("Error", "Authentication");
 
             var googleAccess = GetGoogleAccess(code);
-            if (googleAccess == null)
-                return RedirectToAction("Error", "Authentication");
-
-            return RedirectToAction("GoogleProfile", new { accessToken = googleAccess.AccessToken });
+            return googleAccess == null ? RedirectToAction("Error", "Authentication") : RedirectToAction("GoogleProfile", new { accessToken = googleAccess.AccessToken });
         }
 
         public IActionResult GoogleProfile(string accessToken)
         {
             var profile = GetUserProfile(accessToken);
+
+            if (profile == null)
+                return RedirectToAction("Error", "Authentication");
 
             return View(profile);
         }
